@@ -1,58 +1,79 @@
 # Advanced-NLP-for-Bias-Detection-and-Sentiment-Intelligence
 
-This project focuses on detecting gender bias and classifying sentiment in textual content using advanced NLP techniques. Multiple machine learning models—including Logistic Regression, SVM, and Neural Networks—are implemented and evaluated on a large dataset of textual entries.
-
----
-
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Dataset](#dataset)
-- [Preprocessing](#preprocessing)
-- [Models](#models)
-  - [Logistic Regression](#logistic-regression)
-  - [SVM](#svm)
-  - [Neural Network](#neural-network)
-- [Evaluation](#evaluation)
-- [Results](#results)
-- [Usage](#usage)
-- [Dependencies](#dependencies)
-- [Author](#author)
-
----
-
-## Project Overview
-The goal of this project is to:
-- Detect sexism in textual data.
-- Classify sentiment as positive/negative or neutral.
-- Handle both structured and unstructured text.
-- Fine-tune transformer models for bias detection and sentiment intelligence.
-
-This project demonstrates a full NLP pipeline, including preprocessing, vectorization, model training, and evaluation.
-
----
+This project focuses on detecting gender bias and performing sentiment classification in textual content using advanced NLP techniques. It demonstrates a combination of classical machine learning, neural networks, and transformer-based models to analyze structured and unstructured text.
 
 ## Dataset
-- **Training Data:** `train_all_tasks.csv` (14,000 entries)  
-  Columns:  
-  - `rewire_id` – unique ID for each entry  
-  - `text` – textual content  
-  - `label_sexist` – binary label for sexism (`sexist`, `not sexist`)  
-  - `label_category` – detailed category of sexist content  
-  - `label_vector` – vectorized label representation  
 
-- **Development Data:** `dev_task_a_entries.csv` – used for model testing and prediction.
-
----
+- **Source:** `train_all_tasks.csv`  
+- **Samples:** 14,000 entries  
+- **Classes:** Binary classification (`sexist` vs `not sexist`)  
+- **Label Distribution:**
+  - Not sexist: 10,602
+  - Sexist: 3,398
+- No missing values present
 
 ## Preprocessing
-Text preprocessing includes:
-- Removing punctuation and digits
-- Tokenization using NLTK
-- Stopword removal
-- Lemmatization
 
-```python
-def preprocess_text(text_column):
-    # Remove punctuation, lowercase, remove digits
-    # Tokenize, remove stopwords, lemmatize
-    # Return preprocessed text
+Text data was cleaned and prepared using the following steps:
+
+1. Converted text to lowercase
+2. Removed punctuation and numeric characters
+3. Tokenized using NLTK
+4. Removed stopwords
+5. Lemmatized using WordNetLemmatizer
+6. Rejoined tokens into cleaned strings
+
+## Models
+
+### Logistic Regression
+- Uses TF-IDF vectorization
+- Achieved overall accuracy: 82%
+- Handles binary classification of sexist vs non-sexist text
+- Metrics:
+  - Precision (sexist): 0.85
+  - Precision (not sexist): 0.81
+  - Recall (sexist): 0.31
+  - Recall (not sexist): 0.98
+  - F1-score (weighted): 0.78
+
+### SVM (Support Vector Machine)
+- Uses TF-IDF features
+- Achieved overall accuracy: 82%
+- High precision on minority class
+- Metrics:
+  - Precision (sexist): 0.95
+  - Precision (not sexist): 0.81
+  - Recall (sexist): 0.29
+  - Recall (not sexist): 1.00
+  - F1-score (weighted): 0.79
+
+### Neural Network (MLP Classifier)
+- Uses CountVectorizer for input features
+- Hidden layer with 100 neurons
+- Accuracy: 77%
+- Good performance on majority class
+- Metrics:
+  - Precision (sexist): 0.56
+  - Precision (not sexist): 0.83
+  - Recall (sexist): 0.47
+  - Recall (not sexist): 0.88
+  - F1-score (weighted): 0.77
+
+## Visualization
+
+- Confusion matrices and classification reports were visualized using **Seaborn**.
+- Performance metrics for all models were plotted using **Matplotlib**.
+
+## Key Features
+
+- Handles both structured and unstructured text efficiently
+- Fine-tunes transformer models for bias detection
+- Implements preprocessing pipelines with tokenization, stopword removal, and lemmatization
+- Compares multiple ML and neural network models
+- Generates reproducible evaluation metrics
+
+## Usage
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/HumayraMusarrat/Advanced-NLP-for-Bias-Detection-and-Sentiment-Intelligence.git
