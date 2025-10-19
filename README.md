@@ -93,4 +93,8 @@ Text data was cleaned and prepared using the following steps:
 ## Author 
 Humayra Musarrat
 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
