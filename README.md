@@ -77,3 +77,15 @@ Text data was cleaned and prepared using the following steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/HumayraMusarrat/Advanced-NLP-for-Bias-Detection-and-Sentiment-Intelligence.git
+
+   ```
+2. Install dependancies
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Run the training scripts:
+   ```bash
+   dection_systems.ipynb
+   ```
+3. Evaluate models and visualize results using the provided notebooks.
+
